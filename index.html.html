@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- font awesome link -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style type="text/css">
+  .services ol li {
+    counter-increment: counter;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 1.875rem;
+    list-style-type: none;
+    list-style-position: outside;
+  }
+  .services ol li::before {
+    border-radius: 100%;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    background-color: #363e44;
+    content: "Q" counters(counter,".");
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 900;
+    height: 4.375rem;
+    line-height: 4.375rem;
+    text-align: center;
+    vertical-align: top;
+    width: 4.375rem;
+  }
+  .services ol li .service-item {
+    display: inline-block;
+    margin-left: 5px;
+  }
+  .services ol li .service-item p {
+    font-size: 2.5rem;
+    font-weight: 300;
+    padding-bottom: 0.9375rem;
+  }
+  .services .service-item input {
+    display: none;
+  }
+  .services .service-item input+label:hover{
+    background: pink;
+  }
+  .services .service-item input+label {    
+    border-radius: 3.75rem;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    border: 2px solid #363e44;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 0 0.9375rem 0.9375rem 0;
+    padding: 0.625rem 1.875rem;
+    position: relative;
+  }
+  .services .service-item input+label::before {
+    font-family: FontAwesome;
+    content: "\2713";
+    opacity: 0;
+  }
+  .showData div{
+    display: none;
+  }
+  .checked:before{
+     opacity: 1 !important;
+  }
+  .checked{
+     background-color: #c33806b3;
+     color: #fff;
+  }
+
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function(){
+ $("input").click(function(e) {
+      e.preventDefault();
+     /*if($(this).is(":checked")){
+         $(this).next("label::before").css({"display":"none"});
+      }*/
+
+    $('label').removeClass('checked');
+    $(this).next("label").addClass("checked");
+
+  
+      $('.showData div').fadeOut('slow');
+      $('.' + $(this).data('rel')).fadeIn('slow');
+})
+});
+  </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="services" id="form-section">
+      <ol>
+          <li>
+            <div class="service-item">
+              <p>As of now...</p>
+
+              <input data-rel="feedback-1" id="dont-know" type="radio" value="dont-know">
+              <label for="dont-know"> <img />I Don't Even Know Where To Start</label>
+
+              <input data-rel="feedback-2" id="ready-build" type="radio" value="ready-to-build">
+              <label for="ready-build">I'm Ready To Build</label>
+
+              <input data-rel="feedback-3" id="App" type="radio" value="have-app">
+              <label for="App">I Already Have An App</label>
+
+              <div class="showData">
+                  <div class="feedback-1">
+                    feedback-1
+                  </div>
+                  <div class="feedback-2">
+                    feedback-2
+                  </div>
+                  <div class="feedback-3">
+                    feedback-3
+                  </div>
+              </div>
+
+            </div>
+          </li>
+          <li>
+            <div class="service-item">
+              <p>I want to start in...</p>
+              <input id="asap" type="radio" value="asap">
+              <label for="asap">ASAP</label>
+              <input id="1month" type="radio" value="1-2 months">
+              <label for="1month">1-2 Months</label>
+              <input id="3months" type="radio" value="3+ months">
+              <label for="3months">3+ Months</label>
+            </div>
+          </li>
+          <li>
+            <div class="service-item">
+              <p>I expect you to deliver in...</p>
+              <input id="days" type="radio" value="10 days">
+              <label for="days">10 days</label>
+              <input id="month" type="radio" value="1 month">
+              <label for="month">1 Month</label>
+              <input id="months" type="radio" value="2 months">
+              <label for="months">2 Months</label>
+            </div>
+          </li>             
+      </ol>
+    </div>
+</div>
+
+</body>
+</html>
